@@ -1,0 +1,28 @@
+name: Lint Code Base
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # A step with your email address in the name
+      - name: 22f3001832@ds.study.iitm.ac.in
+        run: echo "Running Super Linter for code linting..."
+
+      # Run Super Linter
+      - name: Run Super Linter
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
